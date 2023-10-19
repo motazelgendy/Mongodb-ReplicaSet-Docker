@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mongo1:
+    hostname: mongo1
+    image: mongo:5
+    container_name: mongo1
+    expose:
+      - 27017    
+    volumes:
+      - ./data1:/data/db
+    ports:
+      - 27017:27017
+    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
+
+  mongo2:
+    hostname: mongo2
+    image: mongo:5
+    container_name: mongo2
+    expose:
+      - 27017    
+    volumes:
+      - ./data2:/data/db
+    ports:
+      - 27016:27017
+    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
+
+
+  mongo3:
+    hostname: mongo3
+    image: mongo:5
+    container_name: mongo3
+    expose:
+      - 27017    
+    volumes:
+      - ./data3:/data/db
+    ports:
+      - 27015:27018
+    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
