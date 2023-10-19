@@ -11,7 +11,7 @@ services:
       - ./data1:/data/db
     ports:
       - 27017:27017
-    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
 
   mongo2:
     hostname: mongo2
@@ -23,7 +23,7 @@ services:
       - ./data2:/data/db
     ports:
       - 27016:27017
-    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
 
 
   mongo3:
@@ -36,4 +36,4 @@ services:
       - ./data3:/data/db
     ports:
       - 27015:27018
-    entrypoint: [ “/usr/bin/mongod”, “ — bind_ip_all”, “ — replSet”, “rs0”, “ — keyFile”, “/data/db/key” ]
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
