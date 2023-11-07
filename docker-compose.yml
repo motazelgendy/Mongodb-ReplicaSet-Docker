@@ -8,7 +8,7 @@ services:
     expose:
       - 27017    
     volumes:
-      - ./data1:/data/db
+      - ./mongo1:/data/db
     ports:
       - 27017:27017
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
@@ -20,7 +20,7 @@ services:
     expose:
       - 27017    
     volumes:
-      - ./data2:/data/db
+      - ./mongo2:/data/db
     ports:
       - 27016:27017
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
@@ -33,7 +33,7 @@ services:
     expose:
       - 27017    
     volumes:
-      - ./data3:/data/db
+      - ./mongo3:/data/db
     ports:
       - 27015:27018
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0", "--keyFile", "data/db/key"]
